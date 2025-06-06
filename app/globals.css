@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+.gradient-button {
+  background: linear-gradient(90deg, 
+    #3b82f6 0%,
+    #3b82f6 10%,
+    #06b6d4 30%,
+    #22c55e 50%,
+    #06b6d4 70%,
+    #3b82f6 90%,
+    #3b82f6 100%
+  );
+  background-size: 200% 100%;
+  animation: gradient 3s linear infinite;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.gradient-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+.gradient-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(90deg, 
+    #3b82f6 0%,
+    #3b82f6 10%,
+    #06b6d4 30%,
+    #22c55e 50%,
+    #06b6d4 70%,
+    #3b82f6 90%,
+    #3b82f6 100%
+  );
+  background-size: 200% 100%;
+  animation: gradient 3s linear infinite;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.7;
+}
