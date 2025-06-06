@@ -7,19 +7,29 @@ export default function AudioPlayer() {
 
   if (!isStarted) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <button 
-          onClick={() => setIsStarted(true)}
-          className="gradient-button px-8 py-4 text-2xl font-bold text-white rounded-full"
+      <div className="fixed inset-0 flex flex-col items-center justify-between py-2 sm:py-4">
+        <div className="flex-1 flex items-center justify-center">
+          <button 
+            onClick={() => setIsStarted(true)}
+            className="gradient-button px-6 sm:px-8 py-3 sm:py-4 text-xl sm:text-2xl font-bold text-white rounded-full"
+          >
+            点我有惊喜
+          </button>
+        </div>
+        <a 
+          href="https://github.com/cyf112233/money" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-white/50 text-xs hover:text-white/70 transition-colors -mb-1 sm:-mb-2"
         >
-          点我有惊喜
-        </button>
+          开源地址
+        </a>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-8 gap-6 sm:gap-8">
+    <div className="flex flex-col items-center min-h-screen p-4 sm:p-8 gap-6 sm:gap-8">
       <audio 
         src="/music/background.mp3" 
         autoPlay 
@@ -48,6 +58,14 @@ export default function AudioPlayer() {
           className="w-full"
         />
       </div>
+      <a 
+        href="https://github.com/cyf112233/money" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="text-white/50 text-sm hover:text-white/70 transition-colors"
+      >
+        开源地址
+      </a>
     </div>
   );
 } 
